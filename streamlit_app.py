@@ -1,17 +1,9 @@
 import streamlit as st
-
-st.title("🎈 My new app")
-
-st.write('hellooooo')
-
-user = st. text_input("Enter a number: ")
-if user:
-    st.write("This is your card: ", user)
-    #print(user)
-
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+
+st.title("MLB Team Win Predictions")
 
 url = "https://raw.githubusercontent.com/IsabelM8/CS250-FinalProj/refs/heads/main/Teams.csv"
 teams = pd.read_csv(url)
