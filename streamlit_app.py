@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 st.title("MLB Team Win Predictions")
+st.write("An app using Linear Regression to predict an MLB Team's wins.")
 
 url = "https://raw.githubusercontent.com/IsabelM8/CS250-FinalProj/refs/heads/main/Teams.csv"
 teams = pd.read_csv(url)
@@ -35,7 +36,7 @@ def predict_wins(r, ba, hr, era, bb, sv, ha):
 
 # User Input - Form
 with st.form("my_form"):
-    st.write("Get your MLB Teams Predicted Wins")
+    st.write("Input Team Statistics")
     r = st.number_input("Enter your team's Runs:", format="%.0f")
     ba = st.number_input("Enter your team's Batting Average:", format="%.3f")
     hr = st.number_input("Enter your team's Home Runs:", format="%.0f")
@@ -50,3 +51,4 @@ with st.form("my_form"):
         st.subheader("Output")
         predictions = predict_wins(r, ba, hr, era, bb, sv, ha)
         st.write(predictions)
+        st.write("Note: Model's R2 score is ~89% and MSE is 14.63.")
